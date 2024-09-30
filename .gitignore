@@ -3,3 +3,4 @@ service-account-key-base64.txt
 service-account-key.json
 .env
 .venv_for_backend
+encoded_key.txt
