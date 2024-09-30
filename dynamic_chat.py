@@ -57,4 +57,3 @@ def generate_dynamic_response(search_string):
         print("Normal response enabled")
         logger.info("Normal response enabled")
         return response.text
-print(generate_dynamic_response("Tell me something cool"))

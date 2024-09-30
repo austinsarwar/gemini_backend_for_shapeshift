@@ -5,7 +5,9 @@ import os
 import google.generativeai as genai
 
 
+
 def generate_basic_chat(user_input):
+    
     load_dotenv()
     # Configure the API key
     api_key = os.getenv("GEMINI_API_KEY")
@@ -36,4 +38,3 @@ def generate_basic_chat(user_input):
     response = chat_session.send_message(user_input)
 
     return response.text
-print(generate_basic_chat("Hey tell me something cool"))
