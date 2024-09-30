@@ -59,7 +59,7 @@ async def generate_meals(chat_history):
 
 @app.get("/basic_chat/{query}" ) # basic chat with an llm use flash model only. can be used with free tier. 
 async def basic_response(query):
-    return generate_basic_response(query)
+    return generate_basic_chat(query)
 
 if __name__ == "__main__":
     import uvicorn
