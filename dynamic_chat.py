@@ -3,6 +3,7 @@ import os
 import google.generativeai as genai
 from dotenv import load_dotenv
 import logging
+from dotenv import load_dotenv
 from vertex_chat import generate_vertex_repsonse
 
 chat_history = []
@@ -10,7 +11,7 @@ logger = logging.getLogger("uvicorn")
 def generate_dynamic_response(search_string):
     load_dotenv()
     # Configure the API key
-    api_key = os.getenv("GEMINI_API_KEY")
+    api_key = os.getenv("google_api_key")
     genai.configure(api_key=api_key)
 
     # Create the model
@@ -57,3 +58,4 @@ def generate_dynamic_response(search_string):
         print("Normal response enabled")
         logger.info("Normal response enabled")
         return response.text
+print(generate_dynamic_response("Hi tell me something cool"))

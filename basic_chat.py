@@ -12,7 +12,6 @@ def generate_basic_chat(user_input):
     load_dotenv()
     # Configure the API key
     api_key = os.getenv("GEMINI_API_KEY")
-    print(f"Api key for .env {api_key}")
     genai.configure(api_key=api_key)
 
     # Create the model configuration
