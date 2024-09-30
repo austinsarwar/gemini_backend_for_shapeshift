@@ -5,7 +5,7 @@ from pathlib import Path
 import os
 from dynamic_chat import generate_dynamic_response
 from meal_plan import generate_meal_plan
-from basic_chat import generate_basic_response
+from basic_chat import generate_basic_chat
 
 # To start with live reload use command uvicorn fastAPI_gemini:app --reload
 
