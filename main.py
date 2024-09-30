@@ -6,12 +6,13 @@ import os
 from dynamic_chat import generate_dynamic_response
 from meal_plan import generate_meal_plan
 from basic_chat import generate_basic_chat
-
+from dotenv import load_dotenv
 # To start with live reload use command uvicorn fastAPI_gemini:app --reload
 
-
+load_dotenv()
 # Check if GOOGLE_CREDENTIALS (base64-encoded key) is present
 base64_key = os.getenv("GOOGLE_CREDENTIALS")
+
 if base64_key:
     # Decode the base64 string and save it as JSON
     key_json = base64.b64decode(base64_key).decode('utf-8')
