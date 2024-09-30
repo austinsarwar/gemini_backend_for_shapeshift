@@ -2,5 +2,4 @@ __pycache__
 service-account-key-base64.txt
 service-account-key.json
 .env
-Procfile
 .venv_for_backend

@@ -6,7 +6,7 @@ $ pip install google-generativeai
 
 import os
 import google.generativeai as genai
-def generate_meal_plan(chat_history = ""):
+def generate_meal_plan():
         genai.configure(api_key=os.environ["google_api_key"])
 
         # Create the model

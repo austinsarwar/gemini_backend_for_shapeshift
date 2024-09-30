@@ -53,7 +53,7 @@ def root():
 async def  dynamic_response(query):
      return generate_dynamic_response(query)
      
-@app.get("/meal_plan/{chat_history}") # Create a meal plan based off the chat_history
+@app.get("/meal_plan") # Create a meal plan based off the chat_history
 async def generate_meals(chat_history):
     return generate_meal_plan(chat_history)
 
