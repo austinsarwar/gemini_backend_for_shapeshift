@@ -5,9 +5,13 @@ $ pip install google-generativeai
 """
 
 import os
+from dotenv import load_dotenv
 import google.generativeai as genai
+
+
 def generate_meal_plan():
-        genai.configure(api_key=os.environ["google_api_key"])
+        load_dotenv()
+        genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 
         # Create the model
         generation_config = {
@@ -39,3 +43,4 @@ def generate_meal_plan():
         response = chat_session.send_message(f"Send markdown for a 3 day meal plan")
 
         return response.text
+print(generate_meal_plan())

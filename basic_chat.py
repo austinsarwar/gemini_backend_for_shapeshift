@@ -1,7 +1,8 @@
 # Install the Google AI Python SDK
 # $ pip install google-generativeai
-from dotenv import load_dotenv
+
 import os
+from dotenv import load_dotenv
 import google.generativeai as genai
 
 
