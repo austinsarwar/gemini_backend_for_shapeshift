@@ -1,6 +1,7 @@
 import vertexai
 from vertexai.generative_models import GenerativeModel, ChatSession
 import os
+from dotenv import load_dotenv
 
 # If grounding import is giving issues try pip install --upgrade google-cloud-aiplatform
 
@@ -13,6 +14,7 @@ def generate_vertex_repsonse(user_input):
         grounding,
     )
 
+    load_dotenv()
     project = os.getenv("vertex_project_name")
 
     vertexai.init(project=project, location="us-central1")
@@ -51,3 +53,4 @@ def generate_vertex_repsonse(user_input):
         ),
     )
     return response.text.strip().split("\n")
+print(generate_vertex_repsonse("Hello vertex"))

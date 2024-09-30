@@ -10,7 +10,7 @@ def generate_basic_chat(user_input):
     
     load_dotenv()
     # Configure the API key
-    api_key = os.getenv("GEMINI_API_KEY")
+    api_key = os.getenv("google_api_key")
     genai.configure(api_key=api_key)
 
     # Create the model configuration
@@ -38,3 +38,4 @@ def generate_basic_chat(user_input):
     response = chat_session.send_message(user_input)
 
     return response.text
+print(generate_basic_chat("Tell me something that you like"))
