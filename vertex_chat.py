@@ -53,4 +53,3 @@ def generate_vertex_repsonse(user_input):
         ),
     )
     return response.text.strip().split("\n")
-print(generate_vertex_repsonse("Hello vertex"))

@@ -43,4 +43,3 @@ def generate_meal_plan():
         response = chat_session.send_message(f"Send markdown for a 3 day meal plan")
 
         return response.text
-print(generate_meal_plan())

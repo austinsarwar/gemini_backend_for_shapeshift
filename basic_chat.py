@@ -38,4 +38,3 @@ def generate_basic_chat(user_input):
     response = chat_session.send_message(user_input)
 
     return response.text
-print(generate_basic_chat("Tell me something that you like"))
