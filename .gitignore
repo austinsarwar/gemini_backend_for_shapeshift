@@ -4,3 +4,4 @@ service-account-key.json
 .env
 Procfile
 .venv_for_backend
+encoded_key.txt
