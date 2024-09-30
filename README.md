@@ -1,7 +1,7 @@
 gemini-vertex-dynamic-grounding
 Dynamic LLM Deployment with Gemini AI and Vertex AI Grounding
 
-This repository provides a simple yet effective implementation of Gemini AI, complemented by Vertex AI for real-time data grounding. It dynamically detects when Gemini lacks real-time data by identifying specific phrases and then calls Vertex AI to supply accurate, grounded information. The setup is designed for ease of deployment, and the repository includes everything necessary to build and package the project into a Docker image.
+This repository provides a simple yet effective implementation of Gemini AI, complemented by Vertex AI for real-time data grounding. It dynamically detects when Gemini lacks real-time data by identifying specific phrases and then calls Vertex AI to supply accurate, grounded information. The setup is designed for ease of deployment, and the repository includes everything necessary to build, package and deploy.
 
 ## Clone the repository and set up the environment:
 
