@@ -57,7 +57,7 @@ async def  dynamic_response(query):
 async def generate_meals(chat_history):
     return generate_meal_plan(chat_history)
 
-@app.get("/basic_chat/{query}" ) # basic chatt with an llm use flash model only. can be used with free tier. 
+@app.get("/basic_chat/{query}" ) # basic chat with an llm use flash model only. can be used with free tier. 
 async def basic_response(query):
     return generate_basic_response(query)
 
