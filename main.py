@@ -36,6 +36,7 @@ origins = [
     "http://localhost:3000",  # Add this origin
     "http://localhost:5173",  # Ensure this has the full URL
     "http://localhost:5174",
+    "http://127.0.0.1:5173", 
 ]
 
 app.add_middleware(
