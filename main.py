@@ -58,25 +58,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-# Specify the path to the static files directory
-static_dir = "dist/assets"
-print("Static files directory:", os.path.abspath(static_dir))
-print("Contents of static files directory:", os.listdir(static_dir))
 
-# Mount the static files directory
-app.mount("/static", StaticFiles(directory=static_dir), name="static")
+@app.get("/")
+async def root():
+    return {"Message:", "Hello World"}
 
-
-@app.get("/", response_class=HTMLResponse)
-async def read_root():
-    with open("dist/assets/index.html") as f:
-        return HTMLResponse(content=f.read())
-
-# Optionally, you can add a catch-all route for React Router
-@app.get("/{full_path:path}", response_class=HTMLResponse)
-async def catch_all(full_path: str):
-    with open("dist/assets/index.html") as f:
-        return HTMLResponse(content=f.read())
 @app.get("/dynamic_chat/{query}") # chat with llm with dynamic vertex use. for paid users only because of high cost.
 async def  dynamic_response(query):
      return generate_dynamic_response(query)
