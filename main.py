@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import HTMLResponse
 import base64
 from pathlib import Path
 import os
@@ -13,22 +15,32 @@ load_dotenv()
 # Check if GOOGLE_CREDENTIALS (base64-encoded key) is present
 base64_key = os.getenv("GOOGLE_CREDENTIALS")
 
+
+# Get the current directory path
+current_directory = Path(__file__).parent
+
+# Use a relative path for local development
+key_file_path = current_directory / "service-account-key.json"
+
 if base64_key:
     # Decode the base64 string and save it as JSON
     key_json = base64.b64decode(base64_key).decode('utf-8')
-    with open('/app/service-account-key.json', 'w') as f:
+    with open(key_file_path, 'w') as f:
         f.write(key_json)
 
     # Set GOOGLE_APPLICATION_CREDENTIALS to the newly created JSON file
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/app/service-account-key.json"
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = str(key_file_path)
 else:
     # If GOOGLE_CREDENTIALS is not set, ensure GOOGLE_APPLICATION_CREDENTIALS is correctly pointing to the file
     service_account_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
     if not service_account_path:
         print("Error: No credentials set!")
 
+
         
 app = FastAPI()
+
+
 
 conversation_history = ""
 
@@ -46,11 +58,25 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+# Specify the path to the static files directory
+static_dir = "dist/assets"
+print("Static files directory:", os.path.abspath(static_dir))
+print("Contents of static files directory:", os.listdir(static_dir))
 
-@app.get("/")
-def root():
-    return "Connection Successful"
+# Mount the static files directory
+app.mount("/static", StaticFiles(directory=static_dir), name="static")
 
+
+@app.get("/", response_class=HTMLResponse)
+async def read_root():
+    with open("dist/assets/index.html") as f:
+        return HTMLResponse(content=f.read())
+
+# Optionally, you can add a catch-all route for React Router
+@app.get("/{full_path:path}", response_class=HTMLResponse)
+async def catch_all(full_path: str):
+    with open("dist/assets/index.html") as f:
+        return HTMLResponse(content=f.read())
 @app.get("/dynamic_chat/{query}") # chat with llm with dynamic vertex use. for paid users only because of high cost.
 async def  dynamic_response(query):
      return generate_dynamic_response(query)
