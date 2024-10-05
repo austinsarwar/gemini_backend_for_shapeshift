@@ -1,7 +1,19 @@
 from openai import OpenAI
-client = OpenAI()
+from dotenv import load_dotenv
+import os
+import openai
 
+# Load the .env file
+load_dotenv()
 
+# Get the OpenAI API key from the environment variable
+openai_api_key = os.getenv('OPENAI_API_KEY')
+
+# Ensure the API key is available
+if openai_api_key is None:
+    raise RuntimeError("OPENAI_API_KEY is not set in the environment")
+
+client = OpenAI(api_key=openai_api_key)
 def generate_mealplan(data=None):
     data = {
         'target_calories' : 2500,
@@ -68,3 +80,4 @@ def generate_mealplan(data=None):
 
     return mealplan
 
+print(generate_mealplan())
