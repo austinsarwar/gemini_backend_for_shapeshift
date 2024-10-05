@@ -3,6 +3,11 @@ client = OpenAI()
 
 
 def generate(data=None):
+    data = {
+        'target_calories' : 2500,
+        'macros' : {'carbs':250, 'fat':120, 'protein':170},
+        'diet_type' : 'omnivore'
+    }
 
     calories = data['target_calories']
 
@@ -62,11 +67,4 @@ def generate(data=None):
 
 
     return mealplan
-
-'''
-def generate_mealplan(data=None):
-
-    for x in range(7):
-        meaplplan = generate(data)
-'''
 
