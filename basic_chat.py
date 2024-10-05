@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 import google.generativeai as genai
 
 
-
+chat_history = []
 def generate_basic_chat(user_input):
     
     load_dotenv()
@@ -32,10 +32,9 @@ def generate_basic_chat(user_input):
     )
 
     chat_session = model.start_chat(
-    history=[
-    ]
+        history=chat_history
     )
-
+    
     response = chat_session.send_message(user_input)
-
+    chat_history.extend(chat_history)
     return response.text
