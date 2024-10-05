@@ -79,5 +79,3 @@ def generate_mealplan(data=None):
 
 
     return mealplan
-
-print(generate_mealplan())
