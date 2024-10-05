@@ -6,7 +6,7 @@ import base64
 from pathlib import Path
 import os
 from dynamic_chat import generate_dynamic_response
-from openai_api import generate
+from openai_mealplan import generate_mealplan
 from basic_chat import generate_basic_chat
 from dotenv import load_dotenv
 # To start with live reload use command uvicorn fastAPI_gemini:app --reload
@@ -67,9 +67,9 @@ async def root():
 async def  dynamic_response(query):
      return generate_dynamic_response(query)
      
-@app.get("/meal_plan") # Create a meal plan based off the chat_history
+@app.get("/meal_plan") # Create a meal plan based off of user input
 async def generate_meals():
-    return generate()
+    return generate_mealplan()
 
 @app.get("/basic_chat/{query}" ) # basic chat with an llm use flash model only. can be used with free tier. 
 async def basic_response(query):

@@ -2,7 +2,7 @@ from openai import OpenAI
 client = OpenAI()
 
 
-def generate(data=None):
+def generate_mealplan(data=None):
     data = {
         'target_calories' : 2500,
         'macros' : {'carbs':250, 'fat':120, 'protein':170},
