@@ -47,29 +47,7 @@ def generate(data=None):
                         Daily Carbs: {carbs}
                         Daily Fat: {fat}
                         Daily Protein: {protein}
-                    Format the output to look like the following sample (there can be more than 2 foods each meal if needed):
-                        # Day 1 <br>
-                        ## Breakfast: <br>
-                        - 4 of food [x calories, [x]g fat, [x]g carbs, [x]g protein] <br>
-                        - 4 of food [x calories, [x]g fat, [x]g carbs, [x]g protein] <br>
-                        - 4 of food [x calories, [x]g fat, [x]g carbs, [x]g protein] <br>
-                        ... etc
-                        ## Lunch: <br>
-                        - 8 oz food [x calories, [x]g fat, [x]g carbs, [x]g protein] <br>
-                        - 2 oz food [x calories, [x]g fat, [x]g carbs, [x]g protein] <br>
-                        ... etc
-                        ## Snack: <br>
-                        - 2 oz food [x calories, [x]g fat, [x]g carbs, [x]g protein] <br>
-                        ... etc 
-                        ## Dinner: <br>
-                        - 8 oz food [x calories, [x]g fat, [x]g carbs, [x]g protein] <br>
-                        - 2 oz food [x calories, [x]g fat, [x]g carbs, [x]g protein] <br>
-                        - 2 oz food [x calories, [x]g fat, [x]g carbs, [x]g protein] <br>
-                        ... etc 
-                        ## Evening Snack:
-                        - 3 food [x calories, [x]g fat, [x]g carbs, [x]g protein] <br>
-                        ... etc
-                        ### Totals: - Calories: x - Fat: [x]g - Carbs: [x]g - Protein: [x]g <br>
+                   
                 """
             }
         ]
