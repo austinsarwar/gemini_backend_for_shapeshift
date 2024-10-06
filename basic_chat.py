@@ -1,6 +1,5 @@
 # Install the Google AI Python SDK
 # $ pip install google-generativeai
-
 import os
 from dotenv import load_dotenv
 import google.generativeai as genai
@@ -50,8 +49,7 @@ def generate_basic_chat(user_input):
             with their goals.\nInteraction History:\n\nRemember important details from previous interactions, such as user preferences, goals, and challenges, 
             to provide continuous, personalized coaching.\nFollow up on previous advice, offer feedback on progress, and suggest new strategies when necessary.
             \nLimitations:\n\nClarify that you are not a substitute for a licensed medical professional.\nRecommend that users consult with healthcare providers 
-            for medical conditions or major dietary changes.\n""",
-)
+            for medical conditions or major dietary changes.\n""",)
     
 
     chat_session = model.start_chat(

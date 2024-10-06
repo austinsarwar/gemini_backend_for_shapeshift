@@ -1,5 +1,4 @@
 from openai import OpenAI
-
 from dotenv import load_dotenv
 import os
 import openai
@@ -15,6 +14,7 @@ if openai_api_key is None:
     raise RuntimeError("OPENAI_API_KEY is not set in the environment")
 
 client = OpenAI(api_key=openai_api_key)
+
 def generate(data=None):
     data = {
         'target_calories' : 2500,
@@ -81,4 +81,3 @@ def generate(data=None):
 
     return mealplan
 
-print(generate())
