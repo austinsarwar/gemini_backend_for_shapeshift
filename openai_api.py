@@ -59,3 +59,4 @@ def generate(data=None):
 
     return mealplan
 
+print(generate("Give me a meal plan"))
