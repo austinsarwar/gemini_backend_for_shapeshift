@@ -42,7 +42,7 @@ def generate(data=None):
                 "content":
                 
                 f"""
-                Generate a sample {diet_type} mealplan for 7 day for a user that needs to eat {calories} calories of food in a day. 
+                Generate a sample {diet_type} mealplan for 1 day for a user that needs to eat {calories} calories of food in a day. 
                     They should also hit the following macros:
                         Daily Carbs: {carbs}
                         Daily Fat: {fat}

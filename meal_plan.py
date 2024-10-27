@@ -60,5 +60,5 @@ def generate_meal_plan():
       )
 
       response = chat_session.send_message("Send meal plan")
-
+      print(response.text)
       return response.text
